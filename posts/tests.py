@@ -19,5 +19,14 @@ class HomePageViewTest(TestCase):
         Posts.objects.create(text='just a test')
  
     def test_view_url_exits_at_proper_location(self):
-        resp = self.client.get('messageboard/')
+        resp = self.client.get('/')
         self.assertEqual(resp.status_code, 200)
+
+    def test_view_url_by_name(self):
+        resp = self.client.get(reverse('messageboard'))
+        self.assertEqual(resp.status_code, 200)
+    
+    def test_view_uses_correct_templates(self):
+        resp = self.client.get(reverse('messageboard'))
+        self.assertEqual(resp.status_code, 200)
+        self.assertTemplateUsed(resp, 'messageboard.html')

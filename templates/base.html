@@ -1,13 +1,17 @@
+{% load static %}
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Main Page</title>
+    <link href="{% static 'css/base.css' %}" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:400" rel="stylesheet">
 </head>
 <body>
     <header>
-        <a href="{% url 'home' %}"> Home </a> | <a href="{% url 'about' %}"> About </a> | <a href="{% url 'messageboard' %}">Message Board</a>
+        <a href="{% url 'home' %}"> Home </a> | <a href="{% url 'about' %}"> About </a> | <a href="{% url 'messageboard' %}">Message Board</a> | <a href="{% url 'blog' %}"> Blog </a>
     </header>
 
     {% block content %}
