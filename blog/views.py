@@ -1,6 +1,6 @@
 from django.shortcuts import render
 from django.views.generic import TemplateView, ListView, DetailView
-from django.views.generic.edit import CreateView, UpdateView
+from django.views.generic.edit import CreateView, UpdateView, DeleteView
 
 from .models import BlogPost
 
@@ -18,7 +18,6 @@ class BlogDetailView(DetailView):
     template_name = "post_detail.html"
     context_object_name = 'post'
 
-
 class BlogCreateView(CreateView):
     model = BlogPost
     template_name = 'post_new.html'
@@ -28,3 +27,8 @@ class BlogUpdateView(UpdateView):
     model = BlogPost
     template_name = 'post_edit.html'
     fields = ['title', 'body']
+
+class BlogDeleteView(DeleteView):
+    model = BlogPost
+    template_name = 'post_delete.html'
+    success_url = revers
